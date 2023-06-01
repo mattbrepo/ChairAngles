@@ -45,11 +45,11 @@ $$cos \theta = \frac{h}{s}$$
 
 $$tan \theta = \frac{w}{t} = \frac{u - s}{t}$$
 
-To solve for &theta; we must remember a property of the tangent:
+To solve for &theta;, we use an [identity of the tangent](https://en.wikipedia.org/wiki/List_of_trigonometric_identities):
 
 $$tan \theta = \frac{\sqrt{1-cos^2 \theta}}{\cos \theta}$$
 
-With this we can write:
+With these formulas, we can write:
 
 $$\frac{\sqrt{1-cos^2 \theta}}{\cos \theta} = \frac{1}{t} \cdot (u - \frac{h}{cos \theta})$$
 
@@ -61,12 +61,12 @@ $$\frac{u^2}{t^2} \cdot \cos^2 \theta + cos^2 \theta - 2 \cdot \frac{u \cdot h}{
 
 $$(\frac{u^2}{t^2} + 1) \cdot \cos^2 \theta - 2 \cdot \frac{u \cdot h}{t^2} \cdot \cos \theta + \frac{h^2}{t^2} - 1 = 0$$
 
-We can now solve this quadratic equation for _cos_ &theta;:
+We can now solve this [quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation) for _cos_ &theta;:
 
 $$\cos \theta = \frac{2 \cdot \frac{u \cdot h}{t^2} \pm \sqrt{4 \cdot \frac{u^2 \cdot h^2}{t^4} - 4 \cdot (\frac{u^2}{t^2} + 1) \cdot (\frac{h^2}{t^2} - 1)}}{2 \cdot (\frac{u^2}{t^2} + 1)}$$
 
 ### Finding &gamma;, _m1_ and _l1_
-With this we can calculate &gamma;, m1 and l1:
+We can calculate &gamma;, m1 and l1:
 
 $$\gamma = \theta + 90°$$
 
