@@ -61,6 +61,7 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   O = (0, -100)
   antibeta = 180 - 90 - beta
   antialpha = 180 - 90 - alpha
+  seat_height = l * mysin(alpha)
 
   # ground
   t.pencolor('green')
@@ -72,12 +73,14 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   
   # key info
   if True:
-    t.goto((0, 250))
-    t.write('alpha: ' + str(round(alpha, 1)), font = font)
-    t.goto((0, 230))
-    t.write('beta: ' + str(round(beta, 1)), font = font)
-    t.goto((0, 210))
+    t.goto((50, 240))
+    t.write('alpha: ' + str(round(alpha, 1)) + '°', font = font)
+    t.goto((50, 220))
+    t.write('beta: ' + str(round(beta, 1)) + '°', font = font)
+    t.goto((50, 200))
     t.write('a: ' + str(round(a, 1)), font = font)
+    t.goto((50, 180))
+    t.write('seat height: ' + str(round(seat_height, 1)), font = font)
   
   # block m
   points = []
@@ -112,10 +115,10 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   points.append(O)
   points.append((points[-1][0] - l1 * mycos(alpha), points[-1][1] - l1 * mysin(alpha)))
   points.append((points[-1][0] + l * mycos(alpha), points[-1][1] + l * mysin(alpha)))
+  pointL_RightDown = points[-1]
   points.append((points[-1][0] - h * mycos(antialpha), points[-1][1] + h * mysin(antialpha)))
   pointL_RightUp = points[-1]
   points.append((points[-1][0] - l * mycos(alpha), points[-1][1] - l * mysin(alpha)))
-  pointL_LeftUp = points[-1]
   points.append(points[1])
   drawLines(t, points)
   
@@ -127,6 +130,13 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   points.append((points[-1][0] + f * mycos(antialpha), points[-1][1] - f * mysin(antialpha)))
   drawLines(t, points)
   
+  # prodebug
+  # points = []
+  # points.append(pointL_RightDown)
+  # points.append((points[-1][0], points[-1][1] - seat_height))
+  # drawLines(t, points)
+  
+  # final turtle settings
   t.hideturtle()
   turtle.Screen().exitonclick()  
 
