@@ -58,7 +58,7 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   font = ('Arial', 12, 'normal')
   
   # the origin is the lower cross point between block l and block m
-  O = (0, -100)
+  O = (100, -200)
   antibeta = 180 - 90 - beta
   antialpha = 180 - 90 - alpha
   seat_height = l * mysin(alpha)
@@ -73,14 +73,17 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   
   # key info
   if True:
-    t.goto((50, 240))
+    write_x = 200
+    t.goto((write_x, 240))
     t.write('alpha: ' + str(round(alpha, 1)) + '°', font = font)
-    t.goto((50, 220))
+    t.goto((write_x, 220))
     t.write('beta: ' + str(round(beta, 1)) + '°', font = font)
-    t.goto((50, 200))
-    t.write('a: ' + str(round(a, 1)), font = font)
-    t.goto((50, 180))
-    t.write('seat height: ' + str(round(seat_height, 1)), font = font)
+    t.goto((write_x, 200))
+    t.write('a: ' + str(round(a, 1)) + 'mm', font = font)
+    t.goto((write_x, 180))
+    t.write('seat height: ' + str(round(seat_height, 1)) + 'mm', font = font)
+    t.goto((write_x, 160))
+    t.write('seat angle: ' + str(round(180 - 90 - beta, 1)) + '°', font = font)
   
   # block m
   points = []
@@ -145,15 +148,15 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
 #
 
 if __name__ == "__main__":
-  l = 400
-  m = 400
-  h = 30
-  e = 20
-  f = 20
+  l = 660
+  m = 660
+  h = 38
+  e = h
+  f = 19
 
-  b = 25
-  gap_block_bd = 100
-  c = 100
+  b = 110
+  gap_block_bd = 170
+  c = 228
   d = m - 2 * e - gap_block_bd
   
   (alpha, beta, a, l1, m1) = calculate(l, m, h, b, c, d, e, f)
