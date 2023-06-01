@@ -11,6 +11,7 @@ def calculate(l, m, h, b, c, d, e, f):
   t = h + 2 * f
   u = m - d - 2 * e - b
   
+  # quadratic equation
   snddeg_a = (u**2 / t**2 + 1)
   snddeg_b = -2*u*h / t**2
   snddeg_c = h**2 / t**2 - 1
@@ -32,16 +33,14 @@ def calculate(l, m, h, b, c, d, e, f):
   
   alpha_deg = math.degrees(alpha)
   beta_deg = 180 - gamma_deg - alpha_deg
-  #if beta > 90:
-  #  beta = 360 - beta
   return (alpha_deg, beta_deg, a, l1, m1)
 
-def drawMeasurement(t, points, msg, font, msgPoint):
-  t.pencolor('red')
-  drawLines(t, points)
-  t.goto(msgPoint)
-  t.write(msg, font = font)
-  t.pencolor('black')
+#def drawMeasurement(t, points, msg, font, msgPoint):
+#  t.pencolor('red')
+#  drawLines(t, points)
+#  t.goto(msgPoint)
+#  t.write(msg, font = font)
+#  t.pencolor('black')
   
 def drawLines(t, points):
   t.penup()
@@ -57,11 +56,6 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   t.pensize(3)
   t.speed(10)
   font = ('Arial', 12, 'normal')
-  #t.forward(100)
-  #t.right(90)
-  #point1 = (50, 100)
-  #point2 = (150, 200)
-  #points = [point1, point2]
   
   # the origin is the lower cross point between block l and block m
   O = (0, -100)
@@ -77,10 +71,13 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   t.pencolor('black')
   
   # key info
-  t.goto((0, +200))
-  t.write('alpha: ' + str(round(alpha, 1)), font = font)
-  t.goto((0, +170))
-  t.write('beta: ' + str(round(beta, 1)), font = font)
+  if True:
+    t.goto((0, 250))
+    t.write('alpha: ' + str(round(alpha, 1)), font = font)
+    t.goto((0, 230))
+    t.write('beta: ' + str(round(beta, 1)), font = font)
+    t.goto((0, 210))
+    t.write('a: ' + str(round(a, 1)), font = font)
   
   # block m
   points = []
@@ -94,15 +91,8 @@ def drawIt(l, m, h, alpha, beta, a, b, c, d, e, f, l1, m1):
   points.append(points[1])
   drawLines(t, points)
   
-  if False:
-    points = []
-    points.append((O[0], O[1] + 500))
-    points.append((points[-1][0] + m * mycos(beta), points[-1][1] - m * mysin(beta)))
-    drawMeasurement(t, points, 'm', font, (points[0][0] + m/2 * mycos(beta), points[0][1] - m/2 * mysin(beta)))
-
   # block b
   points = []
-  #points.append((O[0] + (h - b) * mycos(antibeta), O[1] + (h - b) * mysin(antibeta)))
   points.append((pointM_RightDown[0] - b * mycos(beta), pointM_RightDown[1] + b * mysin(beta)))
   points.append((points[-1][0] + f * mycos(antibeta), points[-1][1] + f * mysin(antibeta)))
   points.append((points[-1][0] - e * mycos(beta), points[-1][1] + e * mysin(beta)))
