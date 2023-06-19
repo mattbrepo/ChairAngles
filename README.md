@@ -70,7 +70,7 @@ We can calculate &gamma;, m1 and l1:
 
 $$\gamma = \theta + 90°$$
 
-$$m_1 = b + e + (f + h) \cdot tan \theta$$
+$$m_1 = b + e + (f + h) \cdot \tan \theta$$
 
 $$l_1 = l - e - c - \frac{h}{\cos \theta} + h \cdot \tan \theta$$
 
